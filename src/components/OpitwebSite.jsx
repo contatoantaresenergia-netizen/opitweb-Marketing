@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import {
   ArrowRight,
   Globe,
@@ -23,13 +24,29 @@ const OpitwebSite = () => {
   }, []);
 
   const trackEvent = (event) => {
-    if (window.dataLayer) {
-      window.dataLayer.push({ event });
-    }
+    if (window.dataLayer) window.dataLayer.push({ event });
   };
 
   return (
     <>
+      {/* SEO Helmet */}
+      <Helmet>
+        <title>Opitweb - Agência de Marketing Digital | Barcelona</title>
+        <meta
+          name="description"
+          content="Opitweb é especialista em marketing digital, design web com React e Next.js, SEO técnico, UX/UI e gestão de redes sociais."
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://www.opitweb.com/" />
+        {/* Open Graph */}
+        <meta property="og:title" content="Opitweb - Agência de Marketing Digital | Barcelona" />
+        <meta property="og:description" content="Impulsione sua marca com tecnologia, design e desempenho digital com a Opitweb." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.opitweb.com/" />
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
+
       {/* Navbar */}
       <nav className="navbar" role="navigation" aria-label="Menu principal">
         <div className="navbar-container">
